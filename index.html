@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finora - Smart Finance Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style1.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="script1.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>💰 Finora</h2>
+      <ul>
+        <li data-section="dashboard" class="active">Dashboard</li>
+        <li data-section="transactions">Transactions</li>
+        <li data-section="goals">Goals</li>
+        <li data-section="statements">Statements</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Finance Dashboard</h1>
+        <div class="header-buttons">
+          <button id="themeToggle">🌙</button>
+          <input type="text" id="searchInput" placeholder="Search transactions..." />
+        </div>
+      </header>
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="section active">
+      <div class="card">
+    <h2 id="grandTotal">Net Balance: ₹0</h2>
+    <div class="chart-toggle-panel">
+      <button data-chart="doughnut" class="active">Doughnut</button>
+      <button data-chart="bar">Bar</button>
+      <button data-chart="line">Line</button>
+      <button data-chart="stacked">Stacked</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart-doughnut"></canvas>
+      <canvas id="chart-bar" style="display:none"></canvas>
+      <canvas id="chart-line" style="display:none"></canvas>
+      <canvas id="chart-stacked" style="display:none"></canvas>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Transactions -->
+      <section id="transactions" class="section">
+        <div class="card">
+          <form id="transactionForm">
+            <input type="text" id="desc" placeholder="Description" required />
+            <input type="number" id="amount" placeholder="Amount" required />
+            <select id="category">
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+              <option value="Savings">Savings</option>
+            </select>
+            <button type="submit">Add</button>
+          </form>
+          <ul id="transactionList"></ul>
+        </div>
+      </section>
+
+      <!-- Goals -->
+      <section id="goals" class="section">
+        <div class="card">
+          <h2>Savings Goals</h2>
+          <form id="goalForm">
+            <input type="text" id="goalName" placeholder="Goal Name" required />
+            <input type="number" id="goalTarget" placeholder="Target Amount" required />
+            <button type="submit">Add Goal</button>
+          </form>
+          <div id="goalList"></div>
+        </div>
+      </section>
+
+      <!-- Statements -->
+      <section id="statements" class="section">
+        <div class="card">
+          <h2>Monthly Statements</h2>
+          <div id="statementContainer"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
